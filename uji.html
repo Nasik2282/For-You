@@ -1,0 +1,28 @@
+<button style="z-index: 1"> semua</button>
+<div class="box" style="z-index: 3; position: absolute; background: aquamarine;">
+  Haii semua
+</div>
+
+
+<audio src="music/music.mp3" autoplay loop></audio>
+
+<audio id="myAudio"src="music/music.mp3" loop></audio>
+
+<button onclick="document.getElementById('myAudio').play()">Play</button>
+<button onclick="document.getElementById('myAudio').pause()">Pause</button>
+
+<script>
+  function play() { var audio = new Audio('' + linkmp3); audio.play(); }
+  async function lanjut() {
+    linkmp3 = 'https://Foryou.feeldream.repl.co/faudio.mp3';
+    showDiv()
+  }
+  mulai()
+</script>
+
+<img src="img/img1.png" style="z-index: 2;">
+
+<!-- <div class="text" style="z-index: 1;">
+ Halo dunia
+</div> -->
+

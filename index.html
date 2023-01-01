@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>For You</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,600;1,900&display=swap"
+            rel="stylesheet">
+    
+        <!-- Favicons -->
+        <link href="img/icon.png" rel="icon">
+        <link href="img/icon.ico" rel="apple-touch-icon">
+        <link href="img/icon.png" rel="icon">
+        <link href="img/icon.ico" rel="apple-touch-icon">
+</head>
+
+<body >
+    <audio id="myAudio" src="music/music.mp3" loop></audio>
+    <section class="Section-1 p-28" style="z-index: 3;">
+        <div id="box" class="rounded-2xl p-80" style="background: linear-gradient(90deg, #DE6363 0%, #FFB88C 100%);
+border: 5px solid #DF6666;
+box-shadow: 20px 10px 50px rgba(0, 0, 0, 0.25);" > 
+            <h1 id="text" class="text-4xl font-bold text-center text-white pb-9">Hallo , <br> how’s your day??</h1>
+            <p id="paragraf" class="text-xl text-white text-center"></p>
+            <div id="btn-1" class="button-container" style="z-index: 3">
+                <a id="link" href="#">
+                    <button id="button" 
+                        class="bg-white pt-2 pb-2 pl-6 pr-6 rounded-full text-2xl font-bold hover:border-t-2"
+                        onclick="changeButtonAndText()" style="margin:auto; color: #EE8E78;z-index: 3;position: relative"> Going Well </button>
+                </a>
+                
+            </div>
+            
+            
+            
+        </div>
+        
+        
+    </section>
+    <div class="floating">
+        <img id="img" class="w-full h-full" src="img/img1.png" alt=""
+            style="visibility: hidden; z-index: 2;margin-top: -600px;">
+        <img id="img2" class="w-full h-full" src="img/page1.png" alt=""
+            style="visibility: visible; z-index: 2;margin-top: -1200px;">
+        <img id="img3" class="w-full h-full" src="img/page2.png" alt=""
+            style="visibility: hidden; z-index: 2;margin-top: -1000px;">
+    </div>
+    
+
+   
+    
+    <script>
+
+        const audio = new Audio("music/music.mp3");
+            audio.loop = true;
+            audio.play();
+
+
+
+       var button = document.getElementById("button");
+       var btn = document.getElementById("btn-1");
+       var box = document.getElementById("box")
+        var text = document.getElementById("text");
+        var paragraf = document.getElementById("paragraf");
+        var colors = ["linear-gradient(90deg, #24C5DC 0%, #504D9F 100%)", "linear-gradient(103.03deg, #FEF1F5 0.68%, #F97784 98.62%)"];
+        var element = document.getElementById("box");
+        var link = document.getElementById("link");
+        var img = document.getElementById("img")
+        var img2 = document.getElementById("img2")
+        var img3 = document.getElementById("img3")
+        const myAudio = document.getElementById("myAudio")
+        
+            
+        var index = 0;
+        var counter = 0;
+
+        button.addEventListener("click", function () {
+            text.innerHTML = "Well, <br> i want say something to you";
+            button.innerHTML = "Oke";
+            element.style.background = colors[index];
+            button.style.color = "#4F4D9F";
+            element.style.border = "#4F4FA0"
+            img2.remove()
+            img3.style.visibility = "visible"
+            myAudio.play()
+
+            // function removeImage() {
+            //     var image = document.getElementById("image");
+            //     image.remove();
+            
+            
+            index++;
+
+            if (index >= colors.length) {
+                index = 3;
+                img.style.visibility ="visible"
+                img3.remove()
+                img2.remove()
+                
+                paragraf.style.lineHeight = "30px"
+                text.innerHTML = "Hai Silvia, I hope Your Days Is Beautiful";
+                button.innerHTML = "WhatsApp";
+                button.style.color = "#F8A8B4";
+                btn.style.paddingTop = "100px"
+                box.style.padding = "100px"
+                // link.href = "https://api.whatsapp.com/send?phone=&text=";
+                // button.classList.remove("");
+                paragraf.innerHTML = "Hei there, hmm..., aku tau kita belum lama terlalu dekat, tapi... aku hanya ingin mengungkapkan betapa bahagianya aku saat ini. Saat pertama kali kita bertemu, aku merasa seperti telah menemukan sesuatu yang luar biasa, setiap detik mengenalmu selalu terasa begitu menyenangkan... <br><br> aku merasa kagum atas semua sikap mu yang begitu mempesona, merasa sangat beruntung bisa mengenalmu dan menjadi bagian dari ceritamu.. <br><br> aku tidak tahu bagaimana mengatakannya, namun ada sesuatu yang ingin kusampaikan, I have fallen in love with you... Everything about you has always been my favorite part: your smile, your personality, and everything. It was such a pleasure experiencing it with you, and I would be so happy if we have a story together in the future. <span>Silvia</span> , would you like to be part of the big plan in my life?"
+                
+            }
+            counter++;
+            if (counter == 3) {
+                location.href = "https://api.whatsapp.com/send/?phone=%2B6289630658011&text=&type=phone_number&app_absent=0"
+            }
+            
+        });
+    </script>
+</body>
+
+</html>
